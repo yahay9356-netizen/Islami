@@ -1,0 +1,12 @@
+flutter_native_splash:
+  color: "#202020"
+  image: "assets/OBJECTS.png"
+  branding: "assets/Group 29.png"
+  branding_bottom_padding: 24
+  fullscreen: true
+
+  android_12:
+    color: "#202020"
+    image: "assets/OBJECTS.png"
+    branding: "assets/Group 29.png"
+    branding_bottom_padding: 24
