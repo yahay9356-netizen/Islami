@@ -13,7 +13,7 @@ class Islami extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: RoutsManger.routs,
-      // initialRoute: RoutsManger.spalch,
+      initialRoute: RoutsManger.introScreen1,
     );
   }
 }
