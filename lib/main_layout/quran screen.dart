@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islami/main_layout/SuraData.dart';
 import 'package:islami/core/sources/colors_maneger.dart';
+import 'package:islami/main_layout/qran%20ditelas.dart';
 
 class Quran_screen extends StatelessWidget {
-  // String SuraNmae="";
+  int numberOfindex=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,12 +192,22 @@ class Quran_screen extends StatelessWidget {
                             ],
                           ),
                           Spacer(),
-                          Text(
-                            surah.name,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: ((context) => Qran_ditelas(surah: surah)),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              surah.name,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ],
