@@ -67,7 +67,7 @@ class Quran_screen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20),
-
+                
                 SizedBox(
                   height: 150,
                   child: ListView.builder(
