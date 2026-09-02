@@ -34,7 +34,8 @@ class _Hadith_screenState extends State<Hadith_screen> {
           ),
 
           Center(
-            child: Column(
+            child:
+            Column(
               children: [
                 SizedBox(height: 40),
                 Image.asset("assets/gamh.png"),
@@ -75,7 +76,7 @@ class _Hadith_screenState extends State<Hadith_screen> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ],
+                            ], 
                           ),
                           Expanded(
                             child: ElhadithContant[i].isEmpty
@@ -109,8 +110,8 @@ class _Hadith_screenState extends State<Hadith_screen> {
     for (int i = 0; i < 50; i++) {
       String path = "assets/Hadeeth/h${i + 1}.txt";
       String contant = await rootBundle.loadString(path);
-      List<String> hadithLines = contant.trim().split("\n");
-      titles[i] = hadithLines[0];
+      List<String> hadithLines   = contant.trim().split("\n");
+         titles[i] = hadithLines[0];
       hadithLines.removeAt(0);
       ElhadithContant[i] =hadithLines.join();
     }
