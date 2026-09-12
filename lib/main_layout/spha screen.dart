@@ -7,6 +7,8 @@ class Spha_screen extends StatefulWidget {
 
 class _Spha_screenState extends State<Spha_screen> {
   int counter = 0;
+  double turns = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +18,6 @@ class _Spha_screenState extends State<Spha_screen> {
             height: double.infinity,
             child: Image.asset("assets/sepha Background.png", fit: BoxFit.fill),
           ),
-
           Center(
             child: Column(
               children: [
@@ -29,16 +30,22 @@ class _Spha_screenState extends State<Spha_screen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        if (counter == 33) {
-                          counter = 0;
-                        }
-                        counter++;
-                        setState(() {});
+                        setState(() {
+                          if (counter == 33) {
+                            counter = 0;
+                          }
+                          counter++;
+                          turns += 1.0 / 33.0;
+                        });
                       },
-                      child: Image.asset("assets/SebhaBody 1.png"),
+                      child: AnimatedRotation(
+                        turns: turns,
+                        duration: const Duration(milliseconds: 300),
+                        child: Image.asset("assets/SebhaBody 1.png"),
+                      ),
                     ),
                     Text(
-                      "سبحان للة",
+                      "سبحان الله",
                       style: TextStyle(color: Colors.white, fontSize: 50),
                     ),
                     Positioned(
