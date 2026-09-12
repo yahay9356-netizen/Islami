@@ -33,7 +33,6 @@ class _IntroScreensLayoutState extends State<IntroScreensLayout> {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool("showHome", true);
       if (mounted) {
-        // استخدام RoutesManager زي ما اتفقنا
         Navigator.pushReplacementNamed(context, RoutsManger.homescreen);
       }
     } else {
@@ -55,7 +54,6 @@ class _IntroScreensLayoutState extends State<IntroScreensLayout> {
 
   @override
   Widget build(BuildContext context) {
-    // جلب أبعاد الشاشة (الطول والعرض) عشان نخلي التصميم متجاوب
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -64,15 +62,13 @@ class _IntroScreensLayoutState extends State<IntroScreensLayout> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: size.height * 0.02), // مسافة علوية نسبية
-            // صورة المسجد العلوية (تاخد 15% من طول الشاشة عشان متكبرش أوي)
+            SizedBox(height: size.height * 0.02),
             Image.asset(
               "assets/gamh.png",
               height: size.height * 0.15,
               fit: BoxFit.contain,
             ),
 
-            // الـ PageView اللي بتعرض محتوى كل صفحة
             Expanded(
               child: PageView(
                 controller: _pageController,
@@ -91,17 +87,15 @@ class _IntroScreensLayoutState extends State<IntroScreensLayout> {
               ),
             ),
 
-            // شريط التنقل السفلي
             Padding(
               padding: EdgeInsets.only(
-                bottom: size.height * 0.04, // مسافة سفلية متجاوبة
+                bottom: size.height * 0.04,
                 left: 20,
                 right: 20,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // زر الرجوع
                   currentIndex == 0
                       ? const SizedBox(width: 60)
                       : TextButton(
@@ -116,14 +110,12 @@ class _IntroScreensLayoutState extends State<IntroScreensLayout> {
                     ),
                   ),
 
-                  // صورة الـ Progress (عرضها يتناسب مع الشاشة)
                   Image.asset(
                     progressImages[currentIndex],
                     width: size.width * 0.35,
                     fit: BoxFit.contain,
                   ),
 
-                  // زر التالي
                   TextButton(
                     onPressed: _nextPage,
                     child: const Text(
@@ -144,7 +136,6 @@ class _IntroScreensLayoutState extends State<IntroScreensLayout> {
     );
   }
 
-  // ---------------- تصميم محتوى الصفحات (متجاوب) ---------------- //
 
   Widget _buildPage1(Size size) {
     return Column(
